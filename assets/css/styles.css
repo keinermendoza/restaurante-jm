@@ -1,0 +1,259 @@
+*,
+::before,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+a:active,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* stalemate-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Stalemate';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/stalemate-v22-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('../fonts/stalemate-v22-latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+  /* plus-jakarta-sans-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/plus-jakarta-sans-v8-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('../fonts/plus-jakarta-sans-v8-latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+  }
+  /* plus-jakarta-sans-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/plus-jakarta-sans-v8-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('../fonts/plus-jakarta-sans-v8-latin-700.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+  }
+:root {
+    --clr--red:#F43737;
+    --clr--red--dark:hsl(0, 90%, 39%);
+
+    --clr--red--alpha:rgba(97,5,5, .75);
+    
+    --clr--white: #fff;
+    --clr--gray: #dfdfdf;
+
+    --clr--black:#000;
+    --clr--black--alpha:rgba(0,0,0,.75);
+
+    --clr--darkgray:#1D1D1D;
+
+    --fs--body: 1rem;
+    --fs--h2:4rem;
+    --fw--400:400;
+    --fw--700:700;
+    --ff-h2: 'Stalemate', 'sans-serif';
+    --ff-body: 'Plus Jakarta Sans', 'sans-serif';
+
+    --break--sm: 26rem;
+    --break--md: 52.5rem;
+    --break--lg:75rem;
+}
+
+body {
+    font-weight: var(--fw--400);
+    font-family: var(--ff-body);
+    font-size: var(--fs--body);
+    background-color: var(--clr--black);
+    color: var(--clr--white);
+}
+
+header,
+main,
+footer {
+    max-width: var(--break--lg);
+    margin-inline: auto;
+}
+
+.main-grid {
+    display: grid;
+}
+.btn-hero {
+    font-weight: var(--fw--700);
+    display: flex;
+    padding: 1.125rem 1.5rem;
+    color: var(--clr--black);
+    width: fit-content;
+    border-radius: 0.313rem;
+    gap: 0.625rem;
+    background-color: var(--clr--white);
+    transition: background-color 250ms;
+}
+
+.btn-hero:hover,
+.btn-hero:focus {
+    background-color: var(--clr--gray) ;
+}
+
+.btn-primary {
+    font-weight: var(--fw--700);
+    display: flex;
+    padding: 1.25rem 2.25rem;
+    color: var(--clr--white);
+    width: fit-content;
+    border-radius: 3.125rem;
+    gap: 0.625rem;
+    background-color: var(--clr--red);
+    transition: background-color 250ms;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--clr--red--dark) ;
+}
+
+.header-2 {
+    font-family: var(--ff-h2);
+    font-size: var(--fs--h2);
+    font-weight: var(--fw--700);
+    line-height: 1;
+    letter-spacing: 0.175rem;
+}
+
+.image-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.image-row {
+    display: grid;
+}
+ 
+.image-row img {
+     object-fit: cover;
+     aspect-ratio: 1/1;
+}
+.gray-repeated-image {
+    display: none;
+    filter: grayscale(100%) saturate(0%);
+}
+.grid-item {
+    padding: 3.5rem 1.25rem;
+    width: min(100%, var(--break--sm));
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    gap: 1.125rem;
+    text-align: center;
+    align-items: center;
+
+}
+.bg-dark {
+    background-color: var(--clr--darkgray);
+    color: var(--clr--white);
+}
+
+.bg-light {
+    background-color: var(--clr--white);
+    color: var(--clr--black);
+}
+
+.steak-background {
+    position: relative;
+    background-image: url('../images/churrasco.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+
+.steak-background::after {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: var(--clr--red--alpha);
+}
+
+.flex-grow {
+    flex: 1 0 50%;
+}
+.relative {
+    position: relative;
+}
+.z-10 {
+    z-index: 10;
+}
+.height-full {
+    height: 100%;
+}
+
+.justify-center {
+    justify-content: center;    
+}
+
+
+.address-section {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.address-section .iframe-map {
+    aspect-ratio: 1;
+    width: 100%;
+}
+
+@media (min-width: 26rem) {
+    .image-row {
+        --image--size: 22rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+        transform: translateX(calc(var(--image--size) * -1.52 + 50%));
+        
+    }
+
+    .gray-repeated-image {
+        display: block;
+    }
+     
+    .image-row img {
+         object-fit: cover;
+         aspect-ratio: 1/1;
+         width: var(--image--size);
+    }
+}
+
+@media (min-width:52.5rem) {
+    .image-row {
+        --image--size: 100%;
+        grid-template-columns: 1fr;
+        transform: none;
+    }
+
+    .main-grid .image-wrapper:nth-child(2) {
+        order:-1;
+    }
+
+    .gray-repeated-image {
+        display: none;
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
