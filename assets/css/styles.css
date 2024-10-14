@@ -51,10 +51,10 @@ img {
 
     --clr--red--alpha:rgba(97,5,5, .75);
     
-    --clr--white: #fff;
-    --clr--gray: #dfdfdf;
+    --clr--white: hsl(0, 0%, 95%);
+    --clr--gray: hsl(0, 0%, 75%);
 
-    --clr--black:#000;
+    --clr--black:hsl(0, 0%, 6%);
     --clr--black--alpha:rgba(0,0,0,.75);
 
     --clr--darkgray:#1D1D1D;
@@ -86,9 +86,8 @@ footer {
     margin-inline: auto;
 }
 
-.main-grid {
-    display: grid;
-}
+/* UTILITIES */
+
 .btn-hero {
     font-weight: var(--fw--700);
     display: flex;
@@ -201,10 +200,48 @@ footer {
     height: 100%;
 }
 
+.flex-column-centred {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .justify-center {
     justify-content: center;    
 }
 
+/* END UTILITIES */
+
+.hero {
+    position: relative;
+    height: min(100vh, 43rem);
+}
+
+.hero__brand {
+    padding: 1rem 1.25rem;
+    font-weight: var(--fw--700);
+}
+
+.hero > .flex-column-centred {
+    position: absolute;
+    left:0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 3.5rem 1.25rem;
+}
+
+.hero__content {
+    align-items: center;
+    gap: 2rem;
+    margin-inline: auto;
+    max-width: var(--break--md);
+    text-align: center;
+}
+
+.main-grid {
+    display: grid;
+}
 
 .address-section {
     display: flex;
@@ -216,6 +253,18 @@ footer {
     width: 100%;
 }
 
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.flex-table .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 @media (min-width: 26rem) {
     .image-row {
         --image--size: 22rem;
@@ -235,9 +284,15 @@ footer {
          aspect-ratio: 1/1;
          width: var(--image--size);
     }
+
+    
 }
 
 @media (min-width:52.5rem) {
+    body {
+        --fs--body:1.2rem;
+        line-height: 1.4;
+    }
     .image-row {
         --image--size: 100%;
         grid-template-columns: 1fr;
@@ -256,4 +311,17 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
+    .address-section .iframe-map {
+        aspect-ratio:initial;
+        width: 100%;
+    }
+
+    .address-section {
+        flex-direction: row;
+    }
+
+    .footer {
+        flex-direction: row;
+        align-items: center;
+    }
 }
