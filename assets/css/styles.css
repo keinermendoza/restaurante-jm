@@ -55,7 +55,7 @@ img {
     --clr--gray: hsl(0, 0%, 75%);
 
     --clr--black:hsl(0, 0%, 6%);
-    --clr--black--alpha:rgba(0,0,0,.75);
+    --clr--black--alpha:rgba(0,0,0,.7);
 
     --clr--darkgray:#1D1D1D;
 
@@ -68,6 +68,7 @@ img {
 
     --break--sm: 26rem;
     --break--md: 52.5rem;
+
     --break--lg:75rem;
 }
 
@@ -77,6 +78,7 @@ body {
     font-size: var(--fs--body);
     background-color: var(--clr--black);
     color: var(--clr--white);
+    word-spacing: 0.1em;
 }
 
 header,
@@ -217,7 +219,60 @@ footer {
     height: min(100vh, 43rem);
 }
 
+.hero__swipper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__swipper::before {    
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr--black--alpha);
+    z-index: 9;
+
+}
+
+/* hero fade out swipper */
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+ }
+ 
+ .carousel-item-active {
+    opacity: 1;
+    z-index: 2;
+ }
+ 
+ .carousel-item-next-position {
+    z-index: 3;
+ }
+ 
+ .carousel-item-next {
+    z-index: 2;
+    opacity: 1;
+ }
+/* end fade out hero */
+
 .hero__brand {
+    position: relative;
+    z-index: 10;
     padding: 1rem 1.25rem;
     font-weight: var(--fw--700);
 }
@@ -232,10 +287,12 @@ footer {
 }
 
 .hero__content {
+    position: relative;
+    z-index: 10;
     align-items: center;
     gap: 2rem;
     margin-inline: auto;
-    max-width: var(--break--md);
+    max-width: 44rem;
     text-align: center;
 }
 
@@ -258,13 +315,12 @@ footer {
     flex-direction: column;
 }
 
-
-
 .flex-table .row {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
 @media (min-width: 26rem) {
     .image-row {
         --image--size: 22rem;
@@ -289,10 +345,6 @@ footer {
 }
 
 @media (min-width:52.5rem) {
-    body {
-        --fs--body:1.2rem;
-        line-height: 1.4;
-    }
     .image-row {
         --image--size: 100%;
         grid-template-columns: 1fr;
@@ -323,5 +375,12 @@ footer {
     .footer {
         flex-direction: row;
         align-items: center;
+    }
+}
+
+@media (min-width:62rem) {
+    body {
+        --fs--body:1.2rem;
+        line-height: 1.4;
     }
 }
